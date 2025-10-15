@@ -37,7 +37,7 @@ export function Testimonials() {
             What Our Clients Say
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied clients 
+            Don&apos;t just take our word for it. Here&apos;s what our satisfied clients 
             have to say about their E-B Global experience.
           </p>
         </div>
@@ -60,7 +60,7 @@ export function Testimonials() {
                 </div>
 
                 <blockquote className="text-foreground mb-4 italic">
-                  "{testimonial.text}"
+                  &quot;{testimonial.text}&quot;
                 </blockquote>
 
                 <div className="border-t pt-4">

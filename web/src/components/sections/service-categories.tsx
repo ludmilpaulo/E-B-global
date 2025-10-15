@@ -135,7 +135,7 @@ export function ServiceCategories() {
         {/* Call to Action */}
         <div className="text-center mt-12">
           <p className="text-muted-foreground mb-4">
-            Don't see what you're looking for?
+            Don&apos;t see what you&apos;re looking for?
           </p>
           <Link 
             href="/services" 

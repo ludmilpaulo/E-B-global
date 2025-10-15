@@ -12,7 +12,8 @@ interface ProtectedRouteProps {
 export function ProtectedRoute({ children, requiredRole }: ProtectedRouteProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState<any>(null);
+  type AuthUser = { role?: string } | null;
+  const [user, setUser] = useState<AuthUser>(null);
   const router = useRouter();
 
   useEffect(() => {

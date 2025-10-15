@@ -8,7 +8,8 @@ import { ProtectedRoute } from "@/components/auth/protected-route";
 import { LogOut, User, Calendar, Star, TrendingUp } from "lucide-react";
 
 export default function DashboardPage() {
-  const [user, setUser] = useState<any>(null);
+  type DashboardUser = { first_name?: string; last_name?: string; role?: string } | null;
+  const [user, setUser] = useState<DashboardUser>(null);
   const [stats, setStats] = useState({
     totalBookings: 0,
     completedBookings: 0,

@@ -143,7 +143,7 @@ export function Footer() {
         {/* Tagline */}
         <div className="text-center mt-8 pt-8 border-t">
           <p className="text-sm text-muted-foreground italic">
-            "We are One" - Connecting Africa through professional excellence
+            &quot;We are One&quot; - Connecting Africa through professional excellence
           </p>
         </div>
       </div>
