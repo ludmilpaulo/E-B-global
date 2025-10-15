@@ -16,6 +16,7 @@ import {
   Clock,
   LogOut
 } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
 
 interface AdminStats {
   totalUsers: number;
@@ -51,6 +52,7 @@ export default function AdminDashboard() {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState<{first_name?: string; last_name?: string} | null>(null);
   const router = useRouter();
+  const { t, formatCurrency } = useLanguage();
 
   useEffect(() => {
     // Load user data
@@ -144,18 +146,18 @@ export default function AdminDashboard() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center py-6">
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
+                <h1 className="text-2xl font-bold text-gray-900">{t('admin.dashboard')}</h1>
                 <p className="text-gray-600">
-                  Welcome back, {user?.first_name} {user?.last_name}
+                  {t('dashboard.welcome')}, {user?.first_name} {user?.last_name}
                 </p>
               </div>
               <div className="flex items-center space-x-4">
                 <span className="text-sm text-gray-600">
-                  Administrator
+                  {t('admin.administrator')}
                 </span>
                 <Button variant="outline" onClick={handleLogout}>
                   <LogOut className="h-4 w-4 mr-2" />
-                  Logout
+                  {t('navigation.logout')}
                 </Button>
               </div>
             </div>
@@ -167,7 +169,7 @@ export default function AdminDashboard() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Total Users</CardTitle>
+                <CardTitle className="text-sm font-medium">{t('admin.totalUsers')}</CardTitle>
                 <Users className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
@@ -180,7 +182,7 @@ export default function AdminDashboard() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Active Partners</CardTitle>
+                <CardTitle className="text-sm font-medium">{t('admin.activePartners')}</CardTitle>
                 <TrendingUp className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
@@ -193,7 +195,7 @@ export default function AdminDashboard() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Total Bookings</CardTitle>
+                <CardTitle className="text-sm font-medium">{t('admin.totalBookings')}</CardTitle>
                 <Calendar className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
@@ -206,11 +208,11 @@ export default function AdminDashboard() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Platform Revenue</CardTitle>
+                <CardTitle className="text-sm font-medium">{t('admin.totalRevenue')}</CardTitle>
                 <DollarSign className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">${stats.totalRevenue.toLocaleString()}</div>
+                <div className="text-2xl font-bold">{formatCurrency(stats.totalRevenue)}</div>
                 <p className="text-xs text-muted-foreground">
                   +8% from last month
                 </p>

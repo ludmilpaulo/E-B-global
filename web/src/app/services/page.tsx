@@ -28,7 +28,7 @@ export default function ServicesPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const { t } = useLanguage();
+  const { t, formatCurrency } = useLanguage();
 
   const categories = [
     { value: "", label: t('services.allCategories') },
@@ -212,7 +212,7 @@ export default function ServicesPage() {
                           <span>{service.duration} min</span>
                         </div>
                         <div className="text-lg font-bold text-green-600">
-                          ${service.price}
+                          {formatCurrency(service.price)}
                         </div>
                       </div>
                       
