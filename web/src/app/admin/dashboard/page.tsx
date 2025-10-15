@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ProtectedRoute } from "@/components/auth/protected-route";
@@ -12,7 +13,8 @@ import {
   Star,
   AlertTriangle,
   CheckCircle,
-  Clock
+  Clock,
+  LogOut
 } from "lucide-react";
 
 interface AdminStats {
@@ -47,8 +49,16 @@ export default function AdminDashboard() {
   });
   const [recentActivity, setRecentActivity] = useState<RecentActivity[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState<{first_name?: string; last_name?: string} | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
+    // Load user data
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      setUser(JSON.parse(userData));
+    }
+
     // Simulate loading admin data
     const loadAdminData = async () => {
       try {
@@ -106,6 +116,13 @@ export default function AdminDashboard() {
     loadAdminData();
   }, []);
 
+  const handleLogout = () => {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+    localStorage.removeItem("user");
+    router.push("/auth/login");
+  };
+
   const getStatusIcon = (status: string) => {
     switch (status) {
       case "pending":
@@ -122,16 +139,24 @@ export default function AdminDashboard() {
   return (
     <ProtectedRoute requiredRole={["ADMIN", "STAFF"]}>
       <div className="min-h-screen bg-gray-50">
+        {/* Header */}
         <div className="bg-white shadow">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center py-6">
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
-                <p className="text-gray-600">Platform overview and management</p>
+                <p className="text-gray-600">
+                  Welcome back, {user?.first_name} {user?.last_name}
+                </p>
               </div>
               <div className="flex items-center space-x-4">
-                <Button variant="outline">Export Data</Button>
-                <Button>Settings</Button>
+                <span className="text-sm text-gray-600">
+                  Administrator
+                </span>
+                <Button variant="outline" onClick={handleLogout}>
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Logout
+                </Button>
               </div>
             </div>
           </div>

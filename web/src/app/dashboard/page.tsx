@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ProtectedRoute } from "@/components/auth/protected-route";
@@ -140,10 +141,12 @@ export default function DashboardPage() {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 gap-4">
-                  <Button className="h-20 flex flex-col items-center justify-center">
-                    <Calendar className="h-6 w-6 mb-2" />
-                    Book Service
-                  </Button>
+                  <Link href="/services">
+                    <Button className="h-20 flex flex-col items-center justify-center w-full">
+                      <Calendar className="h-6 w-6 mb-2" />
+                      Book Service
+                    </Button>
+                  </Link>
                   <Button variant="outline" className="h-20 flex flex-col items-center justify-center">
                     <User className="h-6 w-6 mb-2" />
                     View Profile

@@ -68,6 +68,11 @@ const translations = {
     'services.exploreServices': 'Explore Services',
     'services.notFound': 'Don\'t see what you\'re looking for?',
     'services.browseAll': 'Browse All Services',
+    'services.allCategories': 'All Categories',
+    'services.searchPlaceholder': 'Search for services...',
+    'services.noServicesFound': 'No services found matching your criteria',
+    'services.clearFilters': 'Clear Filters',
+    'services.bookNow': 'Book Now',
   },
   pt: {
     'navigation.home': 'Início',
@@ -122,6 +127,11 @@ const translations = {
     'services.exploreServices': 'Explorar Serviços',
     'services.notFound': 'Não encontra o que procura?',
     'services.browseAll': 'Ver Todos os Serviços',
+    'services.allCategories': 'Todas as Categorias',
+    'services.searchPlaceholder': 'Pesquisar serviços...',
+    'services.noServicesFound': 'Nenhum serviço encontrado com os seus critérios',
+    'services.clearFilters': 'Limpar Filtros',
+    'services.bookNow': 'Reservar Agora',
   }
 };
 
