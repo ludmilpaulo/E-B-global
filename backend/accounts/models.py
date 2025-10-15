@@ -206,14 +206,16 @@ class UserPreference(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        limit_choices_to={'location_type': 'COUNTRY'}
+        limit_choices_to={'location_type': 'COUNTRY'},
+        related_name='user_preferences_country'
     )
     default_province = models.ForeignKey(
         Location,
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        limit_choices_to={'location_type': 'PROVINCE'}
+        limit_choices_to={'location_type': 'PROVINCE'},
+        related_name='user_preferences_province'
     )
     notification_email = models.BooleanField(default=True)
     notification_sms = models.BooleanField(default=False)

@@ -27,14 +27,16 @@ class AnalyticsMetric(models.Model):
         on_delete=models.CASCADE, 
         null=True, 
         blank=True,
-        limit_choices_to={'location_type': 'COUNTRY'}
+        limit_choices_to={'location_type': 'COUNTRY'},
+        related_name='analytics_metrics_country'
     )
     province = models.ForeignKey(
         Location, 
         on_delete=models.CASCADE, 
         null=True, 
         blank=True,
-        limit_choices_to={'location_type': 'PROVINCE'}
+        limit_choices_to={'location_type': 'PROVINCE'},
+        related_name='analytics_metrics_province'
     )
     
     # Service category filter

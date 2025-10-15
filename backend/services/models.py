@@ -77,7 +77,7 @@ class Service(models.Model):
         validators=[MinValueValidator(0)],
         help_text=_('Base price in local currency')
     )
-    currency = models.CharField(max_length=3, default='USD', help_text=_('Currency code (USD, EUR, etc.)')
+    currency = models.CharField(max_length=3, default='USD', help_text=_('Currency code (USD, EUR, etc.)'))
     
     # Service details
     duration_minutes = models.PositiveIntegerField(
