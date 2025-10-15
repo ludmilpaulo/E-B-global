@@ -205,6 +205,14 @@ const translations = {
     'auth.passwordsDoNotMatch': 'Passwords do not match',
     'auth.networkError': 'Network error. Please try again.',
     'auth.anErrorOccurred': 'An error occurred',
+    'auth.forgotPassword': 'Forgot Password?',
+    'auth.forgotPasswordInstructions': 'Enter your email address and we\'ll send you a link to reset your password.',
+    'auth.sendResetLink': 'Send Reset Link',
+    'auth.passwordResetSent': 'Password reset link sent successfully!',
+    'auth.checkEmail': 'Check Your Email',
+    'auth.passwordResetInstructions': 'We\'ve sent a password reset link to your email address.',
+    'auth.emailSentTo': 'Email sent to',
+    'auth.checkSpamFolder': 'If you don\'t see it, check your spam folder.',
 
     // Common
     'common.loading': 'Loading...',
@@ -263,6 +271,43 @@ const translations = {
     'footer.description': 'Connecting Lusophone and Anglophone Africa through professional services. Discover, compare, and book verified partners for all your business needs.',
     'footer.rightsReserved': 'All rights reserved.',
     'footer.tagline': '"We are One" - Connecting Africa through professional excellence',
+
+    // Stats
+    'stats.verifiedPartners': 'Verified Partners',
+    'stats.verifiedPartnersDesc': 'Professional service providers across Africa',
+    'stats.countries': 'Countries',
+    'stats.countriesDesc': 'Serving Lusophone and Anglophone Africa',
+    'stats.averageRating': 'Average Rating',
+    'stats.averageRatingDesc': 'Based on customer reviews and feedback',
+    'stats.bookingSlots': 'Booking Slots',
+    'stats.bookingSlotsDesc': 'Standardized 1.5-hour service windows',
+
+    // How it Works
+    'howItWorks.title': 'How E-B Global Works',
+    'howItWorks.subtitle': 'Our streamlined process makes it easy to find, book, and receive professional services across Africa in just four simple steps.',
+    'howItWorks.step1': 'Discover Services',
+    'howItWorks.step1Desc': 'Browse our comprehensive catalog of professional services across Africa. Filter by category, location, and availability.',
+    'howItWorks.step2': 'Book Your Slot',
+    'howItWorks.step2Desc': 'Select your preferred 90-minute time slot and provide any special requirements. All bookings are standardized for efficiency.',
+    'howItWorks.step3': 'Secure Payment',
+    'howItWorks.step3Desc': 'Complete your booking with secure, local payment methods. Support for multiple currencies and payment gateways.',
+    'howItWorks.step4': 'Get Service',
+    'howItWorks.step4Desc': 'Receive professional service from verified partners. Track progress and communicate through our platform.',
+
+    // Testimonials
+    'testimonials.title': 'What Our Clients Say',
+    'testimonials.subtitle': 'Don\'t just take our word for it. Here\'s what our satisfied clients have to say about their E-B Global experience.',
+    'testimonials.realEstate': 'Real Estate Consulting',
+    'testimonials.languageServices': 'Language Services',
+    'testimonials.transportation': 'Transportation',
+
+    // CTA
+    'cta.title': 'Ready to Get Started?',
+    'cta.subtitle': 'Join thousands of satisfied clients and professional partners who trust E-B Global for their service needs across Africa.',
+    'cta.findServices': 'Find Services',
+    'cta.becomePartner': 'Become a Partner',
+    'cta.alreadyHaveAccount': 'Already have an account?',
+    'cta.signInHere': 'Sign in here',
 
     // Currency
     'currency.usd': 'US Dollar',
@@ -426,6 +471,14 @@ const translations = {
     'auth.passwordsDoNotMatch': 'As palavras-passe não coincidem',
     'auth.networkError': 'Erro de rede. Por favor tente novamente.',
     'auth.anErrorOccurred': 'Ocorreu um erro',
+    'auth.forgotPassword': 'Esqueceu-se da Palavra-passe?',
+    'auth.forgotPasswordInstructions': 'Digite o seu endereço de email e enviaremos um link para redefinir a sua palavra-passe.',
+    'auth.sendResetLink': 'Enviar Link de Redefinição',
+    'auth.passwordResetSent': 'Link de redefinição de palavra-passe enviado com sucesso!',
+    'auth.checkEmail': 'Verifique o Seu Email',
+    'auth.passwordResetInstructions': 'Enviamos um link de redefinição de palavra-passe para o seu endereço de email.',
+    'auth.emailSentTo': 'Email enviado para',
+    'auth.checkSpamFolder': 'Se não o vir, verifique a sua pasta de spam.',
 
     // Common
     'common.loading': 'A carregar...',
@@ -485,6 +538,43 @@ const translations = {
     'footer.rightsReserved': 'Todos os direitos reservados.',
     'footer.tagline': '"Somos Um" - Conectando África através da excelência profissional',
 
+    // Stats
+    'stats.verifiedPartners': 'Parceiros Verificados',
+    'stats.verifiedPartnersDesc': 'Prestadores de serviços profissionais em toda a África',
+    'stats.countries': 'Países',
+    'stats.countriesDesc': 'Servindo África Lusófona e Anglófona',
+    'stats.averageRating': 'Avaliação Média',
+    'stats.averageRatingDesc': 'Baseado em avaliações e feedback dos clientes',
+    'stats.bookingSlots': 'Horários de Reserva',
+    'stats.bookingSlotsDesc': 'Janelas de serviço padronizadas de 1,5 horas',
+
+    // How it Works
+    'howItWorks.title': 'Como Funciona o E-B Global',
+    'howItWorks.subtitle': 'O nosso processo simplificado facilita encontrar, reservar e receber serviços profissionais em toda a África em apenas quatro passos simples.',
+    'howItWorks.step1': 'Descobrir Serviços',
+    'howItWorks.step1Desc': 'Navegue pelo nosso catálogo abrangente de serviços profissionais em toda a África. Filtre por categoria, localização e disponibilidade.',
+    'howItWorks.step2': 'Reservar o Seu Horário',
+    'howItWorks.step2Desc': 'Selecione o seu horário preferido de 90 minutos e forneça quaisquer requisitos especiais. Todas as reservas são padronizadas para eficiência.',
+    'howItWorks.step3': 'Pagamento Seguro',
+    'howItWorks.step3Desc': 'Complete a sua reserva com métodos de pagamento seguros e locais. Suporte para múltiplas moedas e gateways de pagamento.',
+    'howItWorks.step4': 'Receber Serviço',
+    'howItWorks.step4Desc': 'Receba serviços profissionais de parceiros verificados. Acompanhe o progresso e comunique através da nossa plataforma.',
+
+    // Testimonials
+    'testimonials.title': 'O Que Dizem os Nossos Clientes',
+    'testimonials.subtitle': 'Não acredite apenas na nossa palavra. Aqui está o que os nossos clientes satisfeitos têm a dizer sobre a sua experiência E-B Global.',
+    'testimonials.realEstate': 'Consultoria Imobiliária',
+    'testimonials.languageServices': 'Serviços Linguísticos',
+    'testimonials.transportation': 'Transporte',
+
+    // CTA
+    'cta.title': 'Pronto para Começar?',
+    'cta.subtitle': 'Junte-se a milhares de clientes satisfeitos e parceiros profissionais que confiam no E-B Global para as suas necessidades de serviços em toda a África.',
+    'cta.findServices': 'Encontrar Serviços',
+    'cta.becomePartner': 'Tornar-se Parceiro',
+    'cta.alreadyHaveAccount': 'Já tem uma conta?',
+    'cta.signInHere': 'Entrar aqui',
+
     // Currency
     'currency.usd': 'Dólar Americano',
     'currency.eur': 'Euro',
@@ -504,7 +594,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   // Detect device language and currency on mount
   useEffect(() => {
-    const detectLanguageAndCurrency = () => {
+    const detectLanguageAndCurrency = async () => {
       if (typeof window !== 'undefined') {
         // Detect language
         const browserLang = navigator.language.split('-')[0];
@@ -523,12 +613,25 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         if (savedCurrency && currencyRates[savedCurrency]) {
           setCurrency(savedCurrency);
         } else {
-          // Try to detect country from browser
+          // Try to detect country from browser locale first
           const countryCode = Intl.DateTimeFormat().resolvedOptions().locale?.split('-')[1]?.toUpperCase();
           if (countryCode && countryCurrencyMap[countryCode]) {
             setCurrency(countryCurrencyMap[countryCode]);
           } else {
-            setCurrency('USD'); // Default to USD
+            // Try to get country from IP geolocation as fallback
+            try {
+              const response = await fetch('https://ipapi.co/json/');
+              const data = await response.json();
+              const detectedCountry = data.country_code;
+              if (detectedCountry && countryCurrencyMap[detectedCountry]) {
+                setCurrency(countryCurrencyMap[detectedCountry]);
+              } else {
+                setCurrency('USD'); // Default to USD
+              }
+            } catch (error) {
+              console.log('Could not detect country, using USD as default');
+              setCurrency('USD'); // Default to USD
+            }
           }
         }
       }

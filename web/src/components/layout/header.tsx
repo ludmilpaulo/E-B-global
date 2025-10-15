@@ -13,7 +13,7 @@ type Currency = 'USD' | 'EUR' | 'AOA' | 'ZAR' | 'NGN' | 'GHS' | 'KES';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { language, setLanguage, currency, setCurrency, t } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
 
   const navigation = [
     { name: t('navigation.home'), href: "/" },
@@ -56,24 +56,6 @@ export function Header() {
 
               {/* Right side actions */}
               <div className="flex items-center space-x-4">
-                {/* Currency Selector */}
-                <div className="hidden sm:flex items-center space-x-2">
-                  <DollarSign className="h-4 w-4 text-muted-foreground" />
-                  <select
-                    value={currency}
-                    onChange={(e) => setCurrency(e.target.value as Currency)}
-                    className="bg-transparent text-sm border-none outline-none cursor-pointer"
-                  >
-                    <option value="USD">USD</option>
-                    <option value="EUR">EUR</option>
-                    <option value="AOA">AOA</option>
-                    <option value="ZAR">ZAR</option>
-                    <option value="NGN">NGN</option>
-                    <option value="GHS">GHS</option>
-                    <option value="KES">KES</option>
-                  </select>
-                </div>
-
                 {/* Language Selector */}
                 <div className="hidden sm:flex items-center space-x-2">
                   <Globe className="h-4 w-4 text-muted-foreground" />
@@ -155,35 +137,17 @@ export function Header() {
                 </Link>
               </div>
 
-                  {/* Mobile Currency and Language Selectors */}
-                  <div className="space-y-2 pt-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">{t('currency.select')}</span>
-                      <select
-                        value={currency}
-                        onChange={(e) => setCurrency(e.target.value as Currency)}
-                        className="bg-transparent text-sm border-none outline-none cursor-pointer"
-                      >
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="AOA">AOA</option>
-                        <option value="ZAR">ZAR</option>
-                        <option value="NGN">NGN</option>
-                        <option value="GHS">GHS</option>
-                        <option value="KES">KES</option>
-                      </select>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">{t('navigation.language')}</span>
-                      <select
-                        value={language}
-                        onChange={(e) => setLanguage(e.target.value as Language)}
-                        className="bg-transparent text-sm border-none outline-none cursor-pointer"
-                      >
-                        <option value="en">English</option>
-                        <option value="pt">Português</option>
-                      </select>
-                    </div>
+                  {/* Mobile Language Selector */}
+                  <div className="flex items-center justify-between pt-2">
+                    <span className="text-sm text-muted-foreground">{t('navigation.language')}</span>
+                    <select
+                      value={language}
+                      onChange={(e) => setLanguage(e.target.value as Language)}
+                      className="bg-transparent text-sm border-none outline-none cursor-pointer"
+                    >
+                      <option value="en">English</option>
+                      <option value="pt">Português</option>
+                    </select>
                   </div>
             </div>
           </div>

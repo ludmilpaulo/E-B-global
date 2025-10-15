@@ -1,30 +1,35 @@
+"use client";
+
 import { Users, MapPin, Star, Clock } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
 
 export function Stats() {
+  const { t } = useLanguage();
+  
   const stats = [
     {
       icon: Users,
       value: "500+",
-      label: "Verified Partners",
-      description: "Professional service providers across Africa",
+      label: t('stats.verifiedPartners'),
+      description: t('stats.verifiedPartnersDesc'),
     },
     {
       icon: MapPin,
       value: "10+",
-      label: "Countries",
-      description: "Serving Lusophone and Anglophone Africa",
+      label: t('stats.countries'),
+      description: t('stats.countriesDesc'),
     },
     {
       icon: Star,
       value: "4.8",
-      label: "Average Rating",
-      description: "Based on customer reviews and feedback",
+      label: t('stats.averageRating'),
+      description: t('stats.averageRatingDesc'),
     },
     {
       icon: Clock,
       value: "90min",
-      label: "Booking Slots",
-      description: "Standardized 1.5-hour service windows",
+      label: t('stats.bookingSlots'),
+      description: t('stats.bookingSlotsDesc'),
     },
   ];
 

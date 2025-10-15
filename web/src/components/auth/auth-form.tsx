@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 // import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useToast } from "@/hooks/use-toast";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
 
 interface AuthFormProps {
   mode: "login" | "register";
@@ -33,6 +34,7 @@ export function AuthForm({ mode }: AuthFormProps) {
 
   const router = useRouter();
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -48,28 +50,28 @@ export function AuthForm({ mode }: AuthFormProps) {
     const newErrors: Record<string, string> = {};
 
     if (!formData.email) {
-      newErrors.email = "Email is required";
+      newErrors.email = t('auth.emailRequired');
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Email is invalid";
+      newErrors.email = t('auth.emailInvalid');
     }
 
     if (!formData.password) {
-      newErrors.password = "Password is required";
+      newErrors.password = t('auth.passwordRequired');
     } else if (formData.password.length < 8) {
-      newErrors.password = "Password must be at least 8 characters";
+      newErrors.password = t('auth.passwordMinLength');
     }
 
     if (mode === "register") {
       if (!formData.firstName) {
-        newErrors.firstName = "First name is required";
+        newErrors.firstName = t('auth.firstNameRequired');
       }
       if (!formData.lastName) {
-        newErrors.lastName = "Last name is required";
+        newErrors.lastName = t('auth.lastNameRequired');
       }
       if (!formData.confirmPassword) {
-        newErrors.confirmPassword = "Please confirm your password";
+        newErrors.confirmPassword = t('auth.confirmPasswordRequired');
       } else if (formData.password !== formData.confirmPassword) {
-        newErrors.confirmPassword = "Passwords do not match";
+        newErrors.confirmPassword = t('auth.passwordsDoNotMatch');
       }
     }
 
@@ -119,8 +121,8 @@ export function AuthForm({ mode }: AuthFormProps) {
         localStorage.setItem("user", JSON.stringify(data.user));
 
         toast({
-          title: "Success",
-          description: mode === "login" ? "Login successful!" : "Registration successful!",
+          title: t('common.success'),
+          description: mode === "login" ? t('auth.loginSuccessful') : t('auth.registrationSuccessful'),
         });
 
         // Redirect based on user role
@@ -137,16 +139,16 @@ export function AuthForm({ mode }: AuthFormProps) {
           setErrors(data.errors);
         } else {
           toast({
-            title: "Error",
-            description: data.message || "An error occurred",
+            title: t('common.error'),
+            description: data.message || t('auth.anErrorOccurred'),
             variant: "destructive",
           });
         }
       }
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Network error. Please try again.",
+        title: t('common.error'),
+        description: t('auth.networkError'),
         variant: "destructive",
       });
     } finally {
@@ -158,12 +160,12 @@ export function AuthForm({ mode }: AuthFormProps) {
     <Card className="w-full max-w-md mx-auto">
       <CardHeader className="space-y-1">
         <CardTitle className="text-2xl font-bold text-center">
-          {mode === "login" ? "Welcome back" : "Create an account"}
+          {mode === "login" ? t('auth.welcomeBack') : t('auth.createAccount')}
         </CardTitle>
         <CardDescription className="text-center">
           {mode === "login" 
-            ? "Enter your email and password to sign in" 
-            : "Enter your details to create your account"
+            ? t('auth.enterCredentials')
+            : t('auth.enterDetails')
           }
         </CardDescription>
       </CardHeader>
@@ -173,7 +175,7 @@ export function AuthForm({ mode }: AuthFormProps) {
             <>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="firstName">First Name</Label>
+                  <Label htmlFor="firstName">{t('auth.firstName')}</Label>
                   <Input
                     id="firstName"
                     name="firstName"
@@ -187,7 +189,7 @@ export function AuthForm({ mode }: AuthFormProps) {
                   )}
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="lastName">Last Name</Label>
+                  <Label htmlFor="lastName">{t('auth.lastName')}</Label>
                   <Input
                     id="lastName"
                     name="lastName"
@@ -203,7 +205,7 @@ export function AuthForm({ mode }: AuthFormProps) {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="phoneNumber">Phone Number</Label>
+                <Label htmlFor="phoneNumber">{t('auth.phoneNumber')}</Label>
                 <Input
                   id="phoneNumber"
                   name="phoneNumber"
@@ -215,7 +217,7 @@ export function AuthForm({ mode }: AuthFormProps) {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="role">Account Type</Label>
+                <Label htmlFor="role">{t('auth.accountType')}</Label>
                 <select
                   id="role"
                   name="role"
@@ -223,13 +225,13 @@ export function AuthForm({ mode }: AuthFormProps) {
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="CLIENT">Client</option>
-                  <option value="PARTNER">Service Provider</option>
+                  <option value="CLIENT">{t('auth.client')}</option>
+                  <option value="PARTNER">{t('auth.partner')}</option>
                 </select>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="preferredLanguage">Preferred Language</Label>
+                <Label htmlFor="preferredLanguage">{t('auth.preferredLanguage')}</Label>
                 <select
                   id="preferredLanguage"
                   name="preferredLanguage"
@@ -245,7 +247,7 @@ export function AuthForm({ mode }: AuthFormProps) {
           )}
 
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email">{t('auth.email')}</Label>
             <Input
               id="email"
               name="email"
@@ -261,7 +263,7 @@ export function AuthForm({ mode }: AuthFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">{t('auth.password')}</Label>
             <div className="relative">
               <Input
                 id="password"
@@ -292,7 +294,7 @@ export function AuthForm({ mode }: AuthFormProps) {
 
           {mode === "register" && (
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Confirm Password</Label>
+              <Label htmlFor="confirmPassword">{t('auth.confirmPassword')}</Label>
               <div className="relative">
                 <Input
                   id="confirmPassword"
@@ -324,18 +326,28 @@ export function AuthForm({ mode }: AuthFormProps) {
 
           <Button type="submit" className="w-full" disabled={isLoading}>
             {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            {mode === "login" ? "Sign In" : "Create Account"}
+            {mode === "login" ? t('auth.signIn') : t('auth.signUp')}
           </Button>
         </form>
 
-        <div className="mt-6 text-center">
+        <div className="mt-6 text-center space-y-2">
+          {mode === "login" && (
+            <p className="text-sm">
+              <Link
+                href="/auth/forgot-password"
+                className="font-medium text-blue-600 hover:text-blue-500"
+              >
+                {t('auth.forgotPassword')}
+              </Link>
+            </p>
+          )}
           <p className="text-sm text-gray-600">
-            {mode === "login" ? "Don't have an account?" : "Already have an account?"}{" "}
+            {mode === "login" ? t('auth.dontHaveAccount') : t('auth.alreadyHaveAccount')}{" "}
             <Link
               href={mode === "login" ? "/auth/register" : "/auth/login"}
               className="font-medium text-blue-600 hover:text-blue-500"
             >
-              {mode === "login" ? "Sign up" : "Sign in"}
+              {mode === "login" ? t('auth.signUp') : t('auth.signIn')}
             </Link>
           </p>
         </div>
