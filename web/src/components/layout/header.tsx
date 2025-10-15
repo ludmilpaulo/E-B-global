@@ -75,14 +75,18 @@ export function Header() {
 
             {/* Auth Buttons */}
             <div className="hidden sm:flex items-center space-x-2">
-              <Button variant="ghost" size="sm">
-                <LogIn className="h-4 w-4 mr-2" />
-                {t('navigation.login')}
-              </Button>
-              <Button size="sm">
-                <User className="h-4 w-4 mr-2" />
-                {t('navigation.signUp')}
-              </Button>
+              <Link href="/auth/login">
+                <Button variant="ghost" size="sm">
+                  <LogIn className="h-4 w-4 mr-2" />
+                  {t('navigation.login')}
+                </Button>
+              </Link>
+              <Link href="/auth/register">
+                <Button size="sm">
+                  <User className="h-4 w-4 mr-2" />
+                  {t('navigation.signUp')}
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile menu button */}
@@ -118,14 +122,18 @@ export function Header() {
               
               {/* Mobile Auth Buttons */}
               <div className="pt-4 space-y-2">
-                <Button variant="ghost" className="w-full justify-start">
-                  <LogIn className="h-4 w-4 mr-2" />
-                  {t('navigation.login')}
-                </Button>
-                <Button className="w-full justify-start">
-                  <User className="h-4 w-4 mr-2" />
-                  {t('navigation.signUp')}
-                </Button>
+                <Link href="/auth/login" className="w-full">
+                  <Button variant="ghost" className="w-full justify-start">
+                    <LogIn className="h-4 w-4 mr-2" />
+                    {t('navigation.login')}
+                  </Button>
+                </Link>
+                <Link href="/auth/register" className="w-full">
+                  <Button className="w-full justify-start">
+                    <User className="h-4 w-4 mr-2" />
+                    {t('navigation.signUp')}
+                  </Button>
+                </Link>
               </div>
 
               {/* Mobile Language Selector */}

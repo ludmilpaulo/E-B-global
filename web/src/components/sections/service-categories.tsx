@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { 
   Building2, 
@@ -11,79 +13,66 @@ import {
   ArrowRight 
 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/language-context";
 
 export function ServiceCategories() {
+  const { t, language } = useLanguage();
+  
   const categories = [
     {
       icon: Building2,
-      title: "Real Estate Consulting",
-      titlePt: "Consultoria Imobiliária",
-      description: "Professional real estate services, property management, and investment consulting.",
-      descriptionPt: "Serviços imobiliários profissionais, gestão de propriedades e consultoria de investimentos.",
-      href: "/services/imobiliaria",
+      title: t('services.realEstate'),
+      description: t('services.realEstateDesc'),
+      href: "/services",
       color: "bg-blue-500",
     },
     {
       icon: Car,
-      title: "Transportation Services",
-      titlePt: "Serviços de Transporte",
-      description: "Reliable transportation, vehicle rentals, and logistics solutions.",
-      descriptionPt: "Transporte confiável, aluguer de viaturas e soluções logísticas.",
-      href: "/services/transportes",
+      title: t('services.transportation'),
+      description: t('services.transportationDesc'),
+      href: "/services",
       color: "bg-green-500",
     },
     {
       icon: Briefcase,
-      title: "Business Consulting",
-      titlePt: "Consultoria de Negócios",
-      description: "Strategic business advice, market analysis, and growth planning.",
-      descriptionPt: "Conselhos estratégicos de negócios, análise de mercado e planeamento de crescimento.",
-      href: "/services/negocios",
+      title: t('services.business'),
+      description: t('services.businessDesc'),
+      href: "/services",
       color: "bg-purple-500",
     },
     {
       icon: Scale,
-      title: "Legal Services",
-      titlePt: "Serviços Jurídicos",
-      description: "Legal consultation, document review, and compliance services.",
-      descriptionPt: "Consultoria jurídica, revisão de documentos e serviços de conformidade.",
-      href: "/services/juridica",
+      title: t('services.legal'),
+      description: t('services.legalDesc'),
+      href: "/services",
       color: "bg-red-500",
     },
     {
       icon: Languages,
-      title: "Language Services",
-      titlePt: "Serviços Linguísticos",
-      description: "Translation, interpretation, language tutoring, and localization.",
-      descriptionPt: "Tradução, interpretação, ensino de línguas e localização.",
-      href: "/services/linguistica",
+      title: t('services.language'),
+      description: t('services.languageDesc'),
+      href: "/services",
       color: "bg-yellow-500",
     },
     {
       icon: FileText,
-      title: "Document Recognition",
-      titlePt: "Reconhecimento de Documentos",
-      description: "Notary services, embassy documentation, and official certifications.",
-      descriptionPt: "Serviços notariais, documentação de embaixadas e certificações oficiais.",
-      href: "/services/documentos",
+      title: t('services.documents'),
+      description: t('services.documentsDesc'),
+      href: "/services",
       color: "bg-indigo-500",
     },
     {
       icon: Utensils,
-      title: "Corporate Catering",
-      titlePt: "Catering Corporativo",
-      description: "Professional catering services for corporate events and meetings.",
-      descriptionPt: "Serviços de catering profissionais para eventos corporativos e reuniões.",
-      href: "/services/catering",
+      title: t('services.catering'),
+      description: t('services.cateringDesc'),
+      href: "/services",
       color: "bg-orange-500",
     },
     {
       icon: Award,
-      title: "Protocol Services",
-      titlePt: "Serviços de Protocolo",
-      description: "Event planning, diplomatic services, and ceremonial arrangements.",
-      descriptionPt: "Planeamento de eventos, serviços diplomáticos e arranjos cerimoniais.",
-      href: "/services/protocolo",
+      title: t('services.protocol'),
+      description: t('services.protocolDesc'),
+      href: "/services",
       color: "bg-pink-500",
     },
   ];
@@ -94,11 +83,10 @@ export function ServiceCategories() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Our Service Categories
+            {t('services.categoriesTitle')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive professional services across eight specialized categories, 
-            designed to meet all your business and personal needs in Africa.
+            {t('services.categoriesDescription')}
           </p>
         </div>
 
@@ -122,7 +110,7 @@ export function ServiceCategories() {
                   </CardHeader>
                   <CardContent className="pt-0">
                     <div className="flex items-center text-primary font-medium group-hover:translate-x-1 transition-transform">
-                      <span className="text-sm">Explore Services</span>
+                      <span className="text-sm">{t('services.exploreServices')}</span>
                       <ArrowRight className="h-4 w-4 ml-2" />
                     </div>
                   </CardContent>
@@ -135,13 +123,13 @@ export function ServiceCategories() {
         {/* Call to Action */}
         <div className="text-center mt-12">
           <p className="text-muted-foreground mb-4">
-            Don&apos;t see what you&apos;re looking for?
+            {t('services.notFound')}
           </p>
           <Link 
             href="/services" 
             className="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors"
           >
-            Browse All Services
+            {t('services.browseAll')}
             <ArrowRight className="h-4 w-4 ml-2" />
           </Link>
         </div>

@@ -1,50 +1,40 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   const footerSections = {
     company: {
-      title: "Company",
+      title: t('footer.company'),
       links: [
-        { name: "About Us", href: "/about" },
-        { name: "How it Works", href: "/how-it-works" },
-        { name: "Careers", href: "/careers" },
-        { name: "Press", href: "/press" },
+        { name: t('footer.aboutUs'), href: "/about" },
+        { name: t('footer.howItWorks'), href: "/how-it-works" },
+        { name: t('footer.contact'), href: "/contact" },
       ],
     },
     services: {
-      title: "Services",
+      title: t('footer.services'),
       links: [
-        { name: "Real Estate Consulting", href: "/services/imobiliaria" },
-        { name: "Transportation", href: "/services/transportes" },
-        { name: "Business Consulting", href: "/services/negocios" },
-        { name: "Legal Services", href: "/services/juridica" },
-        { name: "Language Services", href: "/services/linguistica" },
-        { name: "Document Recognition", href: "/services/documentos" },
-        { name: "Corporate Catering", href: "/services/catering" },
-        { name: "Protocol Services", href: "/services/protocolo" },
+        { name: t('footer.realEstate'), href: "/services" },
+        { name: t('footer.transportation'), href: "/services" },
+        { name: t('footer.business'), href: "/services" },
+        { name: t('footer.legal'), href: "/services" },
+        { name: t('footer.language'), href: "/services" },
+        { name: t('footer.documents'), href: "/services" },
       ],
     },
     support: {
-      title: "Support",
+      title: t('footer.support'),
       links: [
-        { name: "Help Center", href: "/help" },
-        { name: "Contact Us", href: "/contact" },
-        { name: "Safety", href: "/safety" },
-        { name: "Terms of Service", href: "/terms" },
-        { name: "Privacy Policy", href: "/privacy" },
-      ],
-    },
-    partners: {
-      title: "Partners",
-      links: [
-        { name: "Become a Partner", href: "/partners/join" },
-        { name: "Partner Dashboard", href: "/partners/dashboard" },
-        { name: "Partner Resources", href: "/partners/resources" },
-        { name: "Partner Support", href: "/partners/support" },
+        { name: t('footer.helpCenter'), href: "/contact" },
+        { name: t('footer.contactUs'), href: "/contact" },
+        { name: t('footer.safety'), href: "/about" },
       ],
     },
   };
@@ -75,8 +65,7 @@ export function Footer() {
               <span className="text-xl font-bold eb-gradient-text">E-B Global</span>
             </Link>
             <p className="text-sm text-muted-foreground mb-4 max-w-sm">
-              Connecting Lusophone and Anglophone Africa through professional services. 
-              Discover, compare, and book verified partners for all your business needs.
+              {t('footer.description')}
             </p>
             
             {/* Contact Info */}
@@ -119,7 +108,7 @@ export function Footer() {
         {/* Bottom Footer */}
         <div className="border-t mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <div className="text-sm text-muted-foreground mb-4 sm:mb-0">
-            © {currentYear} E-B Global. All rights reserved.
+            © {currentYear} E-B Global. {t('footer.rightsReserved')}
           </div>
           
           {/* Social Links */}
@@ -143,7 +132,7 @@ export function Footer() {
         {/* Tagline */}
         <div className="text-center mt-8 pt-8 border-t">
           <p className="text-sm text-muted-foreground italic">
-            &quot;We are One&quot; - Connecting Africa through professional excellence
+            {t('footer.tagline')}
           </p>
         </div>
       </div>
