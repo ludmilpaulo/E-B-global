@@ -1,146 +1,272 @@
 # E-B Global - Multi-Service Marketplace
 
-A comprehensive marketplace platform serving Lusophone and Anglophone Africa, enabling clients to discover, compare, and book professional services from vetted partners.
+A comprehensive marketplace platform connecting clients with professional service providers across Lusophone and Anglophone Africa.
 
-## 🚀 Project Overview
+## 🌟 Features
 
-E-B Global is a multi-service marketplace offering:
-- **Imobiliária** (Real Estate Consulting)
-- **Transportes/Transfers** (Transportation Services)
-- **Consultoria de Negócios/Jurídica** (Business/Legal Consulting)
-- **Serviços Linguísticos** (Language Services)
-- **Reconhecimento de Documentos** (Document Recognition - Notary, MIREX, Embassies)
-- **Catering Corporativo** (Corporate Catering)
-- **Protocolo** (Protocol Services)
+- **Multi-Service Platform**: Real Estate, Transportation, Business Consulting, Legal Services, Language Services, Document Recognition, Corporate Catering, and Protocol Services
+- **90-Minute Booking Slots**: Standardized service duration for better scheduling
+- **Multi-Language Support**: Portuguese and English with auto-detection
+- **Location-Based Services**: Auto-detection of user location and language
+- **Professional UI/UX**: Modern, responsive design across all platforms
+- **Comprehensive Admin Dashboard**: Analytics, partner management, and platform oversight
+- **Secure Payment Integration**: Stripe integration with invoice generation
+- **Real-time Notifications**: WhatsApp, Email, and Push notifications
+- **Advanced Analytics**: Performance metrics and business intelligence
 
-## 🏗️ Architecture
+## 🏗️ Technology Stack
 
-### Backend (Django + DRF)
-- Django 5 with Django REST Framework
-- PostgreSQL database
-- Redis for caching and task queues
-- Celery for background tasks
-- JWT authentication
-- OpenAPI documentation with drf-spectacular
+### Backend
+- **Django 5** with Django REST Framework
+- **PostgreSQL** database with optimized queries
+- **Redis** for caching and session management
+- **Celery** for background tasks and notifications
+- **JWT Authentication** with refresh token rotation
+- **OpenAPI Documentation** with drf-spectacular
+- **AWS S3** for file storage
+- **SendGrid** for email services
 
-### Web Frontend (Next.js)
-- Next.js 14 with App Router
-- TypeScript
-- Tailwind CSS
-- shadcn/ui components
-- Redux Toolkit with RTK Query
+### Web Frontend
+- **Next.js 15** with App Router
+- **TypeScript** for type safety
+- **Tailwind CSS** with shadcn/ui components
+- **Redux Toolkit** with RTK Query for state management
+- **Responsive Design** with mobile-first approach
 
-### Mobile App (Expo React Native)
-- Expo SDK 50+
-- React Native with TypeScript
-- Expo Router for navigation
-- Redux Toolkit with RTK Query
-- Native localization support
+### Mobile App
+- **Expo React Native** with TypeScript
+- **Expo Router** for navigation
+- **Redux Toolkit** for state management
+- **Native notifications** and location services
+- **Cross-platform compatibility** (iOS/Android)
+
+### DevOps & Infrastructure
+- **Docker** and Docker Compose for containerization
+- **Nginx** for reverse proxy and load balancing
+- **GitHub Actions** for CI/CD
+- **Sentry** for error monitoring
+- **Cloudflare** for CDN and security
+- **SSL/TLS** encryption
+
+## 🚀 Quick Start
+
+### Option 1: Docker (Recommended)
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd E-B-global
+
+# Start all services
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+```
+
+This will start:
+- **Backend API**: http://localhost:8000
+- **Web Frontend**: http://localhost:3000
+- **Database**: PostgreSQL on port 5432
+- **Cache**: Redis on port 6379
+
+### Option 2: Manual Setup
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed manual setup instructions.
+
+## 📁 Project Structure
+
+```
+E-B-global/
+├── backend/                 # Django backend API
+│   ├── accounts/           # User management & authentication
+│   ├── services/           # Service catalog & categories
+│   ├── bookings/           # Booking system & scheduling
+│   ├── payments/           # Payment processing & invoices
+│   ├── analytics/          # Analytics & reporting
+│   └── ebglobal/          # Django project settings
+├── web/                    # Next.js web application
+│   ├── src/
+│   │   ├── app/           # App Router pages
+│   │   ├── components/    # Reusable UI components
+│   │   │   ├── layout/    # Header, Footer, Navigation
+│   │   │   ├── sections/  # Homepage sections
+│   │   │   └── ui/        # shadcn/ui components
+│   │   └── store/         # Redux store & API
+├── mobile/                 # Expo React Native app
+│   ├── app/               # Expo Router pages
+│   ├── store/             # Redux store & API
+│   └── assets/            # Images and icons
+├── docker-compose.yml     # Development environment
+├── DEPLOYMENT.md          # Deployment guide
+└── README.md              # This file
+```
+
+## 🔧 Configuration
+
+### Environment Variables
+
+Create a `.env` file in the backend directory:
+
+```env
+# Django Settings
+SECRET_KEY=your-secret-key-here
+DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1
+
+# Database
+DB_NAME=ebglobal
+DB_USER=postgres
+DB_PASSWORD=your-password
+DB_HOST=localhost
+DB_PORT=5432
+
+# Redis
+REDIS_URL=redis://localhost:6379/0
+
+# Email (SendGrid)
+EMAIL_HOST=smtp.sendgrid.net
+EMAIL_PORT=587
+EMAIL_HOST_USER=apikey
+EMAIL_HOST_PASSWORD=your-sendgrid-api-key
+
+# AWS S3 (Production)
+USE_S3=False
+AWS_ACCESS_KEY_ID=your-access-key
+AWS_SECRET_ACCESS_KEY=your-secret-key
+AWS_STORAGE_BUCKET_NAME=your-bucket
+
+# Stripe Payments
+STRIPE_PUBLISHABLE_KEY=your-stripe-publishable-key
+STRIPE_SECRET_KEY=your-stripe-secret-key
+```
+
+## 📊 API Documentation
+
+Once the backend is running, access the interactive API documentation:
+
+- **Swagger UI**: http://localhost:8000/api/docs/
+- **ReDoc**: http://localhost:8000/api/redoc/
+- **OpenAPI Schema**: http://localhost:8000/api/schema/
+
+## 🎨 Design System
+
+The platform uses a consistent design system across all applications:
+
+- **Primary Color**: Blue (#1E40AF)
+- **Typography**: Inter font family
+- **Components**: shadcn/ui for web, custom components for mobile
+- **Responsive**: Mobile-first design approach
+- **Accessibility**: WCAG 2.1 AA compliant
 
 ## 🌍 Internationalization
 
-- **Portuguese** (default for PT locales)
-- **English** (default for EN locales)
-- User-overridable language selection
-- API-driven i18n system
+The platform supports multiple languages with API-driven translations:
 
-## 📱 Key Features
+- **English** (default)
+- **Portuguese** (Lusophone Africa)
 
-### For Clients
-- Service discovery with smart filtering
-- 90-minute booking slots
-- Real-time chat with partners
-- Multi-language support
-- Secure payments
-- Order tracking and timeline
+Translations are managed through the backend API and cached for performance.
 
-### For Partners
-- Service catalog management
-- Availability scheduling
-- Order management
-- Financial dashboard
-- Performance analytics
+## 🔐 Security Features
 
-### For Admins
-- Partner verification and approval
-- Analytics dashboard with charts
-- Dispute resolution
-- Financial management
-- System configuration
+- **JWT Authentication** with refresh token rotation
+- **Role-based Access Control** (Admin, Staff, Partner, Client)
+- **CORS Configuration** for cross-origin requests
+- **Input Validation** and sanitization
+- **SQL Injection Protection** with Django ORM
+- **XSS Protection** with Content Security Policy
+- **Rate Limiting** for API endpoints
+- **SSL/TLS Encryption** in production
 
-## 🔧 Development Setup
+## 📱 Mobile Features
 
-### Prerequisites
-- Python 3.11+
-- Node.js 18+
-- PostgreSQL 15+
-- Redis 7+
-- Docker (optional)
-
-### Backend Setup
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
-```
-
-### Web Setup
-```bash
-cd web
-npm install
-npm run dev
-```
-
-### Mobile Setup
-```bash
-cd mobile
-npm install
-npx expo start
-```
+- **Cross-platform** iOS and Android support
+- **Push Notifications** for booking updates
+- **Location Services** for service discovery
+- **Offline Support** with cached data
+- **Biometric Authentication** support
+- **Deep Linking** for sharing services
 
 ## 🚀 Deployment
 
-The application is configured for deployment with:
-- Docker containers
-- Nginx reverse proxy
-- CI/CD with GitHub Actions
-- Environment-based configuration
+### Production Deployment
 
-## 📊 Business Rules
+See [DEPLOYMENT.md](DEPLOYMENT.md) for comprehensive deployment instructions including:
 
-- **90-minute slots**: All bookings must respect minimum 1h30 windows
-- **Geo-scoping**: Default to user's country/province with manual override
-- **Partner verification**: KYC process for all service providers
-- **Multi-currency**: Support for local payment methods
+- Docker production setup
+- Manual server configuration
+- Database setup and migrations
+- SSL certificate configuration
+- Monitoring and logging setup
+- Performance optimization
 
-## 🔐 Security
+### Mobile App Distribution
 
-- JWT authentication with refresh tokens
-- Rate limiting and CORS protection
-- File upload security
-- PII data protection
-- Audit trails for admin actions
+- **iOS**: App Store deployment with EAS Build
+- **Android**: Google Play Store deployment
+- **Beta Testing**: TestFlight and Google Play Console
 
-## 📈 Analytics
+## 📈 Analytics & Monitoring
 
-Admin dashboard includes:
-- GMV and booking metrics
-- Conversion funnels
-- Geographic distribution maps
-- Partner performance analytics
-- Financial reporting
+- **User Analytics**: Registration, engagement, and retention metrics
+- **Business Analytics**: Revenue, bookings, and partner performance
+- **System Monitoring**: Performance, errors, and uptime tracking
+- **Custom Dashboards**: Real-time insights for admins and partners
 
-## 🌟 Logo Design
+## 🤝 Contributing
 
-The E-B Global logo features a professional circular design with:
-- Stylized globe in blue tones
-- "E.B GLOBAL" branding
-- "We are One" tagline
-- Modern, clean aesthetic representing global reach and unity
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes and add tests
+4. Commit your changes: `git commit -m 'Add amazing feature'`
+5. Push to the branch: `git push origin feature/amazing-feature`
+6. Submit a pull request
+
+### Development Guidelines
+
+- Follow the existing code style and conventions
+- Write comprehensive tests for new features
+- Update documentation for API changes
+- Ensure mobile responsiveness
+- Test on multiple devices and browsers
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+For support and questions:
+
+- **Documentation**: Check this README and DEPLOYMENT.md
+- **Issues**: Create an issue in the GitHub repository
+- **Email**: Contact the development team
+- **Community**: Join our developer community
+
+## 🎯 Roadmap
+
+### Phase 1 (Current)
+- ✅ Core platform setup
+- ✅ User authentication and management
+- ✅ Service catalog and booking system
+- ✅ Basic payment integration
+- ✅ Multi-language support
+
+### Phase 2 (Next)
+- 🔄 Advanced analytics dashboard
+- 🔄 Partner onboarding automation
+- 🔄 Advanced search and filtering
+- 🔄 Mobile app optimization
+- 🔄 Performance improvements
+
+### Phase 3 (Future)
+- 📋 AI-powered service recommendations
+- 📋 Advanced reporting and insights
+- 📋 Third-party integrations
+- 📋 Advanced notification system
+- 📋 Enterprise features
 
 ---
 
-**Built with ❤️ for Lusophone and Anglophone Africa**
+**E-B Global** - Connecting Africa through Professional Services
