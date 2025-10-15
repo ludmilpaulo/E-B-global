@@ -47,11 +47,11 @@ export function Hero() {
           {/* Main heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 fade-in">
             Professional Services
-            <span className="block text-yellow-300">Across Africa</span>
+            <span className="block text-cyan-200">Across Africa</span>
           </h1>
           
           {/* Subheading */}
-          <p className="text-xl sm:text-2xl text-blue-100 mb-8 max-w-2xl mx-auto fade-in">
+          <p className="text-xl sm:text-2xl text-slate-100 mb-8 max-w-2xl mx-auto fade-in">
             Connect with verified partners for Real Estate, Transportation, 
             Legal Services, and more across Lusophone and Anglophone Africa
           </p>
@@ -132,15 +132,15 @@ export function Hero() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
             <div className="text-center fade-in">
               <div className="text-3xl font-bold text-white">500+</div>
-              <div className="text-blue-200">Verified Partners</div>
+              <div className="text-slate-200">Verified Partners</div>
             </div>
             <div className="text-center fade-in">
               <div className="text-3xl font-bold text-white">8</div>
-              <div className="text-blue-200">Service Categories</div>
+              <div className="text-slate-200">Service Categories</div>
             </div>
             <div className="text-center fade-in">
               <div className="text-3xl font-bold text-white">10+</div>
-              <div className="text-blue-200">African Countries</div>
+              <div className="text-slate-200">African Countries</div>
             </div>
           </div>
         </div>
