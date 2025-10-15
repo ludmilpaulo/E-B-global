@@ -4,11 +4,13 @@ import { useState } from "react";
 import { Search, MapPin, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/language-context";
 
 export function Hero() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
+  const { t } = useLanguage();
 
   const categories = [
     "All Services",
@@ -46,14 +48,13 @@ export function Hero() {
         <div className="max-w-4xl mx-auto">
           {/* Main heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 fade-in">
-            Professional Services
-            <span className="block text-cyan-200">Across Africa</span>
+            {t('hero.title')}
+            <span className="block text-cyan-200">{t('hero.subtitle')}</span>
           </h1>
           
           {/* Subheading */}
           <p className="text-xl sm:text-2xl text-slate-100 mb-8 max-w-2xl mx-auto fade-in">
-            Connect with verified partners for Real Estate, Transportation, 
-            Legal Services, and more across Lusophone and Anglophone Africa
+            {t('hero.description')}
           </p>
 
           {/* Search Section */}

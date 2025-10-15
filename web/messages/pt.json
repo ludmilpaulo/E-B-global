@@ -1,0 +1,100 @@
+{
+  "navigation": {
+    "home": "Início",
+    "services": "Serviços",
+    "howItWorks": "Como Funciona",
+    "about": "Sobre",
+    "contact": "Contacto",
+    "login": "Entrar",
+    "signUp": "Registar",
+    "search": "Pesquisar"
+  },
+  "hero": {
+    "title": "Serviços Profissionais",
+    "subtitle": "Em Toda a África",
+    "description": "Conecte-se com parceiros verificados para Imobiliário, Transporte, Serviços Jurídicos e mais em toda a África Lusófona e Anglófona",
+    "searchPlaceholder": "Pesquisar serviços...",
+    "getStarted": "Começar"
+  },
+  "services": {
+    "title": "Os Nossos Serviços",
+    "subtitle": "Serviços profissionais em toda a África Lusófona e Anglófona",
+    "categories": "Categorias de Serviços",
+    "categoriesDescription": "Explore a nossa gama abrangente de serviços profissionais",
+    "featuredPartners": "Parceiros em Destaque",
+    "featuredPartnersDescription": "Profissionais de confiança prontos para o servir"
+  },
+  "howItWorks": {
+    "title": "Como Funciona",
+    "subtitle": "Passos simples para se conectar com serviços profissionais em toda a África",
+    "stepsTitle": "Comece em 3 Passos Simples",
+    "stepsDescription": "A nossa plataforma torna simples encontrar e reservar os serviços de que precisa",
+    "whyChoose": "Porquê Escolher E-B Global?",
+    "verifiedPartners": "Parceiros Verificados",
+    "verifiedPartnersDesc": "Todos os nossos prestadores de serviços são rigorosamente verificados e validados",
+    "panAfricanReach": "Alcance Pan-Africano",
+    "panAfricanReachDesc": "Serviços disponíveis em toda a África Lusófona e Anglófona",
+    "multilingualSupport": "Suporte Multilíngue",
+    "multilingualSupportDesc": "Disponível em Inglês e Português para melhor acessibilidade"
+  },
+  "about": {
+    "title": "Sobre E-B Global",
+    "subtitle": "Conectando África através de serviços profissionais",
+    "mission": "A Nossa Missão",
+    "missionDescription": "A E-B Global dedica-se a colmatar o fosso entre prestadores de serviços e clientes em toda a África Lusófona e Anglófona. Acreditamos no poder das conexões profissionais para impulsionar o crescimento económico e desenvolvimento em todo o continente.",
+    "whatWeDo": "O Que Fazemos",
+    "whatWeDoItems": {
+      "connect": "Conectar prestadores de serviços verificados com clientes em toda a África",
+      "facilitate": "Facilitar processos de reserva e pagamento perfeitos",
+      "multilingual": "Fornecer suporte multilíngue em Inglês e Português",
+      "quality": "Garantir qualidade através do nosso processo de verificação"
+    },
+    "values": "Os Nossos Valores",
+    "valuesItems": {
+      "trust": "Confiança e transparência em todas as nossas interações",
+      "quality": "Entrega de serviços de qualidade e satisfação do cliente",
+      "innovation": "Inovação na conexão de pessoas e serviços",
+      "commitment": "Compromisso com o desenvolvimento económico africano"
+    },
+    "testimonialsTitle": "O Que Os Nossos Utilizadores Dizem",
+    "testimonialsDescription": "Ouça os nossos clientes e prestadores de serviços satisfeitos",
+    "teamTitle": "A Nossa Equipa",
+    "teamDescription": "Profissionais dedicados trabalhando para conectar África"
+  },
+  "contact": {
+    "title": "Contacte-nos",
+    "subtitle": "Entre em contacto com a nossa equipa para suporte, parcerias ou consultas gerais",
+    "sendMessage": "Envie-nos uma Mensagem",
+    "getInTouch": "Entre em Contacto",
+    "firstName": "Nome Próprio",
+    "lastName": "Apelido",
+    "email": "Email",
+    "phone": "Número de Telefone",
+    "subject": "Assunto",
+    "message": "Mensagem",
+    "sendMessageButton": "Enviar Mensagem",
+    "emailSupport": "Suporte por Email",
+    "emailSupportDesc": "Para consultas gerais e suporte",
+    "phoneSupport": "Suporte Telefónico",
+    "phoneSupportDesc": "Disponível de Segunda a Sexta, 9h - 18h",
+    "officeLocation": "Localização do Escritório",
+    "officeLocationDesc": "Visite a nossa sede",
+    "businessHours": "Horário de Funcionamento",
+    "faqTitle": "Perguntas Frequentes",
+    "faqDescription": "Encontre respostas para perguntas comuns sobre a nossa plataforma"
+  },
+  "common": {
+    "loading": "A carregar...",
+    "error": "Erro",
+    "success": "Sucesso",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "view": "Ver",
+    "back": "Voltar",
+    "next": "Seguinte",
+    "previous": "Anterior",
+    "close": "Fechar"
+  }
+}

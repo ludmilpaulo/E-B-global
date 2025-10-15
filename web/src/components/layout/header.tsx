@@ -6,17 +6,20 @@ import Image from "next/image";
 import { Menu, X, Globe, User, LogIn, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/language-context";
+
+type Language = 'en' | 'pt';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState("en");
+  const { language, setLanguage, t } = useLanguage();
 
   const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "How it Works", href: "/how-it-works" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: t('navigation.home'), href: "/" },
+    { name: t('navigation.services'), href: "/services" },
+    { name: t('navigation.howItWorks'), href: "/how-it-works" },
+    { name: t('navigation.about'), href: "/about" },
+    { name: t('navigation.contact'), href: "/contact" },
   ];
 
   return (
@@ -57,7 +60,7 @@ export function Header() {
               <Globe className="h-4 w-4 text-muted-foreground" />
               <select
                 value={language}
-                onChange={(e) => setLanguage(e.target.value)}
+                onChange={(e) => setLanguage(e.target.value as Language)}
                 className="bg-transparent text-sm border-none outline-none cursor-pointer"
               >
                 <option value="en">EN</option>
@@ -74,11 +77,11 @@ export function Header() {
             <div className="hidden sm:flex items-center space-x-2">
               <Button variant="ghost" size="sm">
                 <LogIn className="h-4 w-4 mr-2" />
-                Login
+                {t('navigation.login')}
               </Button>
               <Button size="sm">
                 <User className="h-4 w-4 mr-2" />
-                Sign Up
+                {t('navigation.signUp')}
               </Button>
             </div>
 
@@ -117,11 +120,11 @@ export function Header() {
               <div className="pt-4 space-y-2">
                 <Button variant="ghost" className="w-full justify-start">
                   <LogIn className="h-4 w-4 mr-2" />
-                  Login
+                  {t('navigation.login')}
                 </Button>
                 <Button className="w-full justify-start">
                   <User className="h-4 w-4 mr-2" />
-                  Sign Up
+                  {t('navigation.signUp')}
                 </Button>
               </div>
 
@@ -130,7 +133,7 @@ export function Header() {
                 <span className="text-sm text-muted-foreground">Language</span>
                 <select
                   value={language}
-                  onChange={(e) => setLanguage(e.target.value)}
+                  onChange={(e) => setLanguage(e.target.value as Language)}
                   className="bg-transparent text-sm border-none outline-none cursor-pointer"
                 >
                   <option value="en">English</option>

@@ -1,0 +1,100 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "howItWorks": "How it Works",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "signUp": "Sign Up",
+    "search": "Search"
+  },
+  "hero": {
+    "title": "Professional Services",
+    "subtitle": "Across Africa",
+    "description": "Connect with verified partners for Real Estate, Transportation, Legal Services, and more across Lusophone and Anglophone Africa",
+    "searchPlaceholder": "Search for services...",
+    "getStarted": "Get Started"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Professional services across Lusophone and Anglophone Africa",
+    "categories": "Service Categories",
+    "categoriesDescription": "Explore our comprehensive range of professional services",
+    "featuredPartners": "Featured Partners",
+    "featuredPartnersDescription": "Trusted professionals ready to serve you"
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Simple steps to connect with professional services across Africa",
+    "stepsTitle": "Get Started in 3 Easy Steps",
+    "stepsDescription": "Our platform makes it simple to find and book the services you need",
+    "whyChoose": "Why Choose E-B Global?",
+    "verifiedPartners": "Verified Partners",
+    "verifiedPartnersDesc": "All our service providers are thoroughly vetted and verified",
+    "panAfricanReach": "Pan-African Reach",
+    "panAfricanReachDesc": "Services available across Lusophone and Anglophone Africa",
+    "multilingualSupport": "Multilingual Support",
+    "multilingualSupportDesc": "Available in English and Portuguese for better accessibility"
+  },
+  "about": {
+    "title": "About E-B Global",
+    "subtitle": "Connecting Africa through professional services",
+    "mission": "Our Mission",
+    "missionDescription": "E-B Global is dedicated to bridging the gap between service providers and clients across Lusophone and Anglophone Africa. We believe in the power of professional connections to drive economic growth and development across the continent.",
+    "whatWeDo": "What We Do",
+    "whatWeDoItems": {
+      "connect": "Connect verified service providers with clients across Africa",
+      "facilitate": "Facilitate seamless booking and payment processes",
+      "multilingual": "Provide multilingual support in English and Portuguese",
+      "quality": "Ensure quality through our verification process"
+    },
+    "values": "Our Values",
+    "valuesItems": {
+      "trust": "Trust and transparency in all our interactions",
+      "quality": "Quality service delivery and customer satisfaction",
+      "innovation": "Innovation in connecting people and services",
+      "commitment": "Commitment to African economic development"
+    },
+    "testimonialsTitle": "What Our Users Say",
+    "testimonialsDescription": "Hear from our satisfied clients and service providers",
+    "teamTitle": "Our Team",
+    "teamDescription": "Dedicated professionals working to connect Africa"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our team for support, partnerships, or general inquiries",
+    "sendMessage": "Send us a Message",
+    "getInTouch": "Get in Touch",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "subject": "Subject",
+    "message": "Message",
+    "sendMessageButton": "Send Message",
+    "emailSupport": "Email Support",
+    "emailSupportDesc": "For general inquiries and support",
+    "phoneSupport": "Phone Support",
+    "phoneSupportDesc": "Available Monday to Friday, 9 AM - 6 PM",
+    "officeLocation": "Office Location",
+    "officeLocationDesc": "Visit our headquarters",
+    "businessHours": "Business Hours",
+    "faqTitle": "Frequently Asked Questions",
+    "faqDescription": "Find answers to common questions about our platform"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "view": "View",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close"
+  }
+}
