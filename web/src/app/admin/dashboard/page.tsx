@@ -49,7 +49,7 @@ export default function AdminDashboard() {
     activeServices: 0,
   });
   const [recentActivity, setRecentActivity] = useState<RecentActivity[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading] = useState(true);
   const [user, setUser] = useState<{first_name?: string; last_name?: string} | null>(null);
   const router = useRouter();
   const { t, formatCurrency } = useLanguage();

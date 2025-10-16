@@ -36,6 +36,7 @@ CELERY_RESULT_BACKEND = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
 CORS_ALLOWED_ORIGINS = [
     "https://www.e-b-global.online",
     "https://e-b-global.online",
+    "https://e-b-global.vercel.app",
 ]
 
 # Security settings for production

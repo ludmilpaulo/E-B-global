@@ -13,7 +13,7 @@ export function ProtectedRoute({ children, requiredRole }: ProtectedRouteProps) 
   const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   type AuthUser = { role?: string } | null;
-  const [user, setUser] = useState<AuthUser>(null);
+  const [, setUser] = useState<AuthUser>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export function ProtectedRoute({ children, requiredRole }: ProtectedRouteProps) 
           router.push("/unauthorized");
           return;
         }
-      } catch (error) {
+      } catch {
         localStorage.removeItem("access_token");
         localStorage.removeItem("refresh_token");
         localStorage.removeItem("user");

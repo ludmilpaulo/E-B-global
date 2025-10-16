@@ -146,7 +146,7 @@ export function AuthForm({ mode }: AuthFormProps) {
           });
         }
       }
-    } catch (error) {
+        } catch {
       toast({
         title: t('common.error'),
         description: t('auth.networkError'),
