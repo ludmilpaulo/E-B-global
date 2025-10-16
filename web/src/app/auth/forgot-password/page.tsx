@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft, Mail, Loader2 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
+import { getApiUrl } from "@/config/api";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -43,7 +44,7 @@ export default function ForgotPasswordPage() {
     setIsLoading(true);
     
     try {
-      const response = await fetch('/api/v1/auth/forgot-password/', {
+      const response = await fetch(getApiUrl('/api/v1/auth/forgot-password/'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

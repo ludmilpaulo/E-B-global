@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/contexts/language-context";
 import { Search, Star, Clock, MapPin, User } from "lucide-react";
+import { getApiUrl } from "@/config/api";
 
 interface Service {
   id: string;
@@ -52,7 +53,7 @@ export default function ServicesPage() {
 
   const fetchServices = async () => {
     try {
-      const response = await fetch('/api/v1/services/');
+      const response = await fetch(getApiUrl('/api/v1/services/'));
       if (response.ok) {
         const data = await response.json();
         setServices(data.results || data);

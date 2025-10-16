@@ -11,6 +11,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useToast } from "@/hooks/use-toast";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
+import { getApiUrl } from "@/config/api";
 
 interface AuthFormProps {
   mode: "login" | "register";
@@ -104,7 +105,7 @@ export function AuthForm({ mode }: AuthFormProps) {
             preferred_language: formData.preferredLanguage,
           };
 
-      const response = await fetch(endpoint, {
+      const response = await fetch(getApiUrl(endpoint), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

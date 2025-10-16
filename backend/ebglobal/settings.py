@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-9%0yb+am#egy3fy@@xf8s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=lambda v: [s.strip() for s in v.split(',')])
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,www.e-b-global.online,e-b-global.online', cast=lambda v: [s.strip() for s in v.split(',')])
 
 
 # Application definition
@@ -189,6 +189,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:8081",
     "http://127.0.0.1:8081",
+    "https://www.e-b-global.online",
+    "https://e-b-global.online",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
