@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/contexts/language-context";
-import { Search, Star, Clock, MapPin, User } from "lucide-react";
+import { Search, Star, Clock, User } from "lucide-react";
 import { getApiUrl } from "@/config/api";
 
 interface Service {

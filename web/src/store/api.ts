@@ -6,7 +6,7 @@ export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     baseUrl,
-    prepareHeaders: (headers, { getState }) => {
+    prepareHeaders: (headers) => {
       // Add auth token if available
       const token = localStorage.getItem("access_token");
       if (token) {

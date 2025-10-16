@@ -16,7 +16,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useLanguage } from "@/contexts/language-context";
 
 export function ServiceCategories() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   
   const categories = [
     {

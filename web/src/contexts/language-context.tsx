@@ -628,7 +628,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
               } else {
                 setCurrency('USD'); // Default to USD
               }
-            } catch (error) {
+            } catch {
               console.log('Could not detect country, using USD as default');
               setCurrency('USD'); // Default to USD
             }

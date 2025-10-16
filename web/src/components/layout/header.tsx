@@ -3,13 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Globe, User, LogIn, Search, DollarSign } from "lucide-react";
+import { Menu, X, Globe, User, LogIn, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/language-context";
 
 type Language = 'en' | 'pt';
-type Currency = 'USD' | 'EUR' | 'AOA' | 'ZAR' | 'NGN' | 'GHS' | 'KES';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
