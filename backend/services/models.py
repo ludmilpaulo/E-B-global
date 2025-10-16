@@ -95,7 +95,9 @@ class Service(models.Model):
     primary_location = models.ForeignKey(
         Location, 
         on_delete=models.PROTECT, 
-        related_name='primary_services'
+        related_name='primary_services',
+        null=True,
+        blank=True
     )
     service_areas = models.ManyToManyField(Location, related_name='available_services', blank=True)
     

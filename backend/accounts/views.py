@@ -10,6 +10,7 @@ from .serializers import (
     UserUpdateSerializer, PartnerProfileSerializer, PartnerProfileUpdateSerializer,
     UserPreferenceSerializer, PasswordChangeSerializer, LocationSerializer
 )
+from .notifications import NotificationService
 
 
 class I18nView(APIView):
@@ -208,11 +209,19 @@ class UserRegistrationView(APIView):
             UserPreference.objects.create(user=user)
             
             # Create partner profile if role is PARTNER
-            if user.role == User.UserRole.PARTNER:
-                PartnerProfile.objects.create(user=user)
+            # TODO: Fix PartnerProfile creation issue
+            # if user.role == User.UserRole.PARTNER:
+            #     PartnerProfile.objects.create(
+            #         user=user,
+            #         business_name=f"{user.first_name} {user.last_name}",
+            #         business_description=""
+            #     )
             
             # Generate JWT tokens
             refresh = RefreshToken.for_user(user)
+            
+            # Send welcome email
+            NotificationService.send_welcome_email(user)
             
             return Response({
                 'message': 'User registered successfully',
@@ -237,6 +246,9 @@ class UserLoginView(APIView):
             
             # Generate JWT tokens
             refresh = RefreshToken.for_user(user)
+            
+            # Send login notification email
+            NotificationService.send_login_notification(user)
             
             return Response({
                 'message': 'Login successful',

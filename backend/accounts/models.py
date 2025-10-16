@@ -1,11 +1,45 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
 
 
+class UserManager(BaseUserManager):
+    """Custom user manager for email-based authentication"""
+    
+    def create_user(self, email, password=None, **extra_fields):
+        """Create and return a regular user with an email and password"""
+        if not email:
+            raise ValueError('The Email field must be set')
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+    
+    def create_superuser(self, email, password=None, **extra_fields):
+        """Create and return a superuser with an email and password"""
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+        extra_fields.setdefault('role', 'ADMIN')
+        
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError('Superuser must have is_staff=True.')
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError('Superuser must have is_superuser=True.')
+        
+        return self.create_user(email, password, **extra_fields)
+
+
 class User(AbstractUser):
     """Custom User model with role-based access control"""
+    
+    # Use email as the unique identifier
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['first_name', 'last_name']
+    
+    # Custom manager
+    objects = UserManager()
     
     class UserRole(models.TextChoices):
         ADMIN = 'ADMIN', _('Admin')
@@ -20,6 +54,7 @@ class User(AbstractUser):
         PENDING_VERIFICATION = 'PENDING_VERIFICATION', _('Pending Verification')
     
     # Override default fields
+    username = None  # Remove username field
     email = models.EmailField(_('email address'), unique=True)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', 
                                message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
@@ -180,7 +215,7 @@ class PartnerProfile(models.Model):
     # Metrics
     total_earnings = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     completed_bookings = models.PositiveIntegerField(default=0)
-    average_rating = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True)
+    average_rating = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True, default=None)
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

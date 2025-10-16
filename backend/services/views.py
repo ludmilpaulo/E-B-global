@@ -25,8 +25,8 @@ class ServiceCategoryViewSet(viewsets.ReadOnlyModelViewSet):
         category = self.get_object()
         services = Service.objects.filter(
             category=category,
-            is_active=True
-        ).select_related('partner', 'category', 'location')
+            status='ACTIVE'
+        ).select_related('partner', 'category', 'primary_location')
         
         # Apply filters
         location = request.query_params.get('location')
@@ -61,7 +61,7 @@ class ServiceViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     
     def get_queryset(self):
-        queryset = Service.objects.filter(is_active=True).select_related(
+        queryset = Service.objects.filter(status='ACTIVE').select_related(
             'partner', 'category', 'location'
         ).prefetch_related('attributes', 'availability_slots')
         
@@ -171,7 +171,7 @@ class ServiceSearchView(APIView):
         data = serializer.validated_data
         
         # Build queryset
-        queryset = Service.objects.filter(is_active=True).select_related(
+        queryset = Service.objects.filter(status='ACTIVE').select_related(
             'partner', 'category', 'location'
         )
         
@@ -274,7 +274,7 @@ class PopularServicesView(APIView):
         category_id = request.query_params.get('category')
         limit = int(request.query_params.get('limit', 8))
         
-        queryset = Service.objects.filter(is_active=True)
+        queryset = Service.objects.filter(status='ACTIVE')
         
         if category_id:
             queryset = queryset.filter(category_id=category_id)

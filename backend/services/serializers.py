@@ -18,7 +18,7 @@ class ServiceCategorySerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'created_at', 'updated_at']
     
     def get_service_count(self, obj):
-        return obj.services.filter(is_active=True).count()
+        return obj.services.filter(status='ACTIVE').count()
 
 
 class ServiceAttributeSerializer(serializers.ModelSerializer):
@@ -57,50 +57,16 @@ class AvailabilitySlotSerializer(serializers.ModelSerializer):
 
 class ServiceListSerializer(serializers.ModelSerializer):
     """Serializer for listing services (optimized for list views)"""
-    partner = UserProfileSerializer(read_only=True)
-    category = ServiceCategorySerializer(read_only=True)
-    location = LocationSerializer(read_only=True)
-    rating = serializers.SerializerMethodField()
-    review_count = serializers.SerializerMethodField()
-    is_available_today = serializers.SerializerMethodField()
+    partner_name = serializers.CharField(source='partner.get_full_name', read_only=True)
+    category_name = serializers.CharField(source='category.name', read_only=True)
     
     class Meta:
         model = Service
         fields = [
-            'id', 'title_pt', 'title_en', 'description_pt', 'description_en',
-            'partner', 'category', 'location', 'base_price', 'currency',
-            'duration_minutes', 'rating', 'review_count', 'is_available_today',
-            'is_active', 'created_at'
+            'id', 'name', 'description', 'partner_name', 'category_name', 
+            'base_price', 'currency', 'duration_minutes', 'status', 'created_at'
         ]
         read_only_fields = ['id', 'created_at']
-    
-    def get_rating(self, obj):
-        # Calculate average rating from bookings
-        from bookings.models import Booking
-        avg_rating = Booking.objects.filter(
-            service=obj,
-            status='COMPLETED',
-            client_rating__isnull=False
-        ).aggregate(avg_rating=Avg('client_rating'))['avg_rating']
-        return round(avg_rating, 1) if avg_rating else 0.0
-    
-    def get_review_count(self, obj):
-        # Count completed bookings with ratings
-        from bookings.models import Booking
-        return Booking.objects.filter(
-            service=obj,
-            status='COMPLETED',
-            client_rating__isnull=False
-        ).count()
-    
-    def get_is_available_today(self, obj):
-        # Check if service has available slots today
-        from django.utils import timezone
-        today = timezone.now().date()
-        return obj.availability_slots.filter(
-            start_time__date=today,
-            is_available=True
-        ).exists()
 
 
 class ServiceDetailSerializer(serializers.ModelSerializer):
