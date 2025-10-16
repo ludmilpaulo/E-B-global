@@ -49,7 +49,7 @@ export default function AdminDashboard() {
     activeServices: 0,
   });
   const [recentActivity, setRecentActivity] = useState<RecentActivity[]>([]);
-  const [isLoading] = useState(true);
+      const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState<{first_name?: string; last_name?: string} | null>(null);
   const router = useRouter();
   const { t, formatCurrency } = useLanguage();
@@ -115,8 +115,16 @@ export default function AdminDashboard() {
       }
     };
 
-    loadAdminData();
-  }, []);
+        loadAdminData();
+      }, []);
+
+      if (isLoading) {
+        return (
+          <div className="min-h-screen flex items-center justify-center">
+            <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
+          </div>
+        );
+      }
 
   const handleLogout = () => {
     localStorage.removeItem("access_token");
